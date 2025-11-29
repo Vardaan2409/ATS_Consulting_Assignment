@@ -1,3 +1,5 @@
+![ProjectLayout](https://github.com/user-attachments/assets/423b8db9-c928-4fdb-9200-f620a4b713ba)
+
 ## Layout Decisions
 
 Hero Section	--               Highlights one main top story with a large image (common in major news websites).
