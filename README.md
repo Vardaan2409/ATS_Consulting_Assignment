@@ -42,55 +42,75 @@ Prevent stale data	  --  News must always be current; no caching is desirable.
 ## Code Explanation (All Components)
 ### a. components/Hero.tsx
 
-Shows the top news article.
+1. Shows the top news article.
 
-Uses large image + title + summary.
+2. Uses large image + title + summary.
 
-Clicking the Hero opens /news/[id].
+3. Clicking the Hero opens /news/[id].
 
 ### b. components/NewsCard.tsx
 
-Displays the rest of the articles in a grid.
+1. Displays the rest of the articles in a grid.
 
-Responsive design.
+2. Responsive design.
 
-Redirects to /news/[id].
+3.Redirects to /news/[id].
 
 ### c. components/NewsGrid.tsx
 
-Renders the 3-column layout on desktop, 1-column on mobile.
+1. Renders the 3-column layout on desktop, 1-column on mobile.
 
 ### d. components/SafeImage.tsx
 
-Custom wrapper around Next.js <Image>.
+1. Custom wrapper around Next.js <Image>.
 
-Automatically replaces broken/unavailable images with a placeholder.
+2. Automatically replaces broken/unavailable images with a placeholder.
 
 ### e. app/news/[id]/page.tsx
 
-Receives encoded URL slug.
+1. Receives encoded URL slug.
 
-Finds the article by article.link.
+2. Finds the article by article.link.
 
-Redirects user to original publisher website.
+3. Redirects user to original publisher website.
 
 ### f. app/news/[id]/redirect-client.tsx
 
-Uses useEffect to trigger window.location.href = url client-side.
+1. Uses useEffect to trigger window.location.href = url client-side.
 
 ### g. app/category/[type]/page.tsx
 
-Accepts category (india / world / sports).
+1. Accepts category (india / world / sports).
 
-Uses query filters and shows filtered results.
+2. Uses query filters and shows filtered results.
 
 ### h. utils/fetchNews.ts
 
-Centralized API fetching.
+1. Centralized API fetching.
 
-Returns a list of Article objects.
+2. Returns a list of Article objects.
 
-Handles errors gracefully.
+3. Handles errors gracefully.
+
+## Data Model Structure
+
+### Article Type:
+
+export type Article = {
+  title: string;
+  description?: string;
+  link: string;          // URL to full article
+  image_url?: string;
+  pubDate?: string;
+  source_id?: string;
+};
+
+
+#### Why these fields?
+
+1.  API provides these exact properties.
+
+2. Minimal yet sufficient to show a card + redirect.
 
 
 ## Challenges & How I Overcame Them
