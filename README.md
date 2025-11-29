@@ -26,6 +26,18 @@ No API key leakage	 --   API calls happen on the server, not the browser.
 
 Prevent stale data	  --  News must always be current; no caching is desirable.
 
+### Tradeoffs
+#### Advantage
+
+1. Real-time fresh news
+          
+2. No need for revalidation	     
+
+#### Disadvantage
+
+1. SSR increases response time slightly
+
+2. More server load compared to static pages
 
 ## Code Explanation (All Components)
 ### a. components/Hero.tsx
