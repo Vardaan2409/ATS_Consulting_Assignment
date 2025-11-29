@@ -40,7 +40,7 @@ Prevent stale data	  --  News must always be current; no caching is desirable.
 2. More server load compared to static pages
 
 ## Code Explanation (All Components)
-### a. components/Hero.tsx
+#### a. components/Hero.tsx
 
 1. Shows the top news article.
 
@@ -48,7 +48,7 @@ Prevent stale data	  --  News must always be current; no caching is desirable.
 
 3. Clicking the Hero opens /news/[id].
 
-### b. components/NewsCard.tsx
+#### b. components/NewsCard.tsx
 
 1. Displays the rest of the articles in a grid.
 
@@ -56,17 +56,17 @@ Prevent stale data	  --  News must always be current; no caching is desirable.
 
 3.Redirects to /news/[id].
 
-### c. components/NewsGrid.tsx
+#### c. components/NewsGrid.tsx
 
 1. Renders the 3-column layout on desktop, 1-column on mobile.
 
-### d. components/SafeImage.tsx
+#### d. components/SafeImage.tsx
 
 1. Custom wrapper around Next.js <Image>.
 
 2. Automatically replaces broken/unavailable images with a placeholder.
 
-### e. app/news/[id]/page.tsx
+#### e. app/news/[id]/page.tsx
 
 1. Receives encoded URL slug.
 
@@ -74,17 +74,17 @@ Prevent stale data	  --  News must always be current; no caching is desirable.
 
 3. Redirects user to original publisher website.
 
-### f. app/news/[id]/redirect-client.tsx
+#### f. app/news/[id]/redirect-client.tsx
 
 1. Uses useEffect to trigger window.location.href = url client-side.
 
-### g. app/category/[type]/page.tsx
+#### g. app/category/[type]/page.tsx
 
 1. Accepts category (india / world / sports).
 
 2. Uses query filters and shows filtered results.
 
-### h. utils/fetchNews.ts
+#### h. utils/fetchNews.ts
 
 1. Centralized API fetching.
 
@@ -94,7 +94,7 @@ Prevent stale data	  --  News must always be current; no caching is desirable.
 
 ## Data Model Structure
 
-### Article Type:
+#### Article Type:
 
 export type Article = {
 
@@ -121,28 +121,28 @@ export type Article = {
 
 
 ## Challenges & How I Overcame Them
-### Challenge 1: Many news images failed to load
+#### Challenge 1: Many news images failed to load
 
 Some image URLs from the NewsData API returned 403 errors or expired links, causing broken images on the UI.
 
-### Solution:
+#### Solution:
 
 I created a custom SafeImage component that automatically replaces any failed image with a local placeholder.
 This ensures the UI stays clean even when the API sends invalid image URLs.
 
-### Challenge 2: NewsData API does NOT return full article content
+#### Challenge 2: NewsData API does NOT return full article content
 
 The API only provides the title, small description, and link, not the complete article body.
 
-### Solution:
+#### Solution:
 
 Instead of attempting to reconstruct full articles, I redirected the user to the original publisher website, ensuring they always see the complete and accurate article.
 
-### Challenge 3: Handling missing images / empty data
+#### Challenge 3: Handling missing images / empty data
 
 Sometimes the API returned incomplete objects with missing fields such as image_url, description, or even empty result lists.
 
-### Solution:
+#### Solution:
 
 I implemented multiple fallback strategies:
 
@@ -155,15 +155,15 @@ Placeholder images when image_url is missing
 
 ### AI was helpful in:
 
-Designing the redirect approach for opening the full article
+1. Designing the redirect approach for opening the full article
 
-Creating a robust SafeImage component
+2. Creating a robust SafeImage component
 
-Providing better structuring ideas for components
+3. Providing better structuring ideas for components
 
-Suggesting SSR patterns for fresh news data
+4. Suggesting SSR patterns for fresh news data
 
-Helping debug layout and UI issues quickly
+5. Helping debug layout and UI issues quickly
 
 
 ## Improvements I Would Add With More Time
