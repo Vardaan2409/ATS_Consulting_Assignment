@@ -1,4 +1,4 @@
-Layout Decisions
+## Layout Decisions
 
 Hero Section	               Highlights one main top story with a large image (common in major news websites).
 3-column grid	               News sites typically use 2–4 columns; 3 is optimal for readability on desktop.
@@ -7,7 +7,7 @@ SafeImage component	           Ensures layout doesn’t break when an image is m
 Redirect detail page	       Because NewsData API does not provide the full article text, only the link.
 
 
-Data-Fetching Strategy
+## Data-Fetching Strategy
 
 Method Used:
 Server-Side Rendering (SSR) using async fetch inside server components (Next.js 13+ App Router).
@@ -20,7 +20,7 @@ No API key leakage	    API calls happen on the server, not the browser.
 Prevent stale data	    News must always be current; no caching is desirable.
 
 
-Code Explanation (All Components)
+## Code Explanation (All Components)
 a. components/Hero.tsx
 
 Shows the top news article.
@@ -74,7 +74,7 @@ Returns a list of Article objects.
 Handles errors gracefully.
 
 
-Challenges & How I Overcame Them
+## Challenges & How I Overcame Them
 Challenge 1: Many news images failed to load
 
 Some image URLs from the NewsData API returned 403 errors or expired links, causing broken images on the UI.
@@ -122,7 +122,7 @@ Suggesting SSR patterns for fresh news data
 Helping debug layout and UI issues quickly
 
 
-Improvements I Would Add With More Time
+## Improvements I Would Add With More Time
 Feature	                                                  Benefit
 Full Article Parser (scraping)	        Show full article inside my site (not allowed with most APIs).
 Dark Mode	                            Better UX.
