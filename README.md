@@ -1,10 +1,14 @@
 ## Layout Decisions
 
-Hero Section	               Highlights one main top story with a large image (common in major news websites).
-3-column grid	               News sites typically use 2–4 columns; 3 is optimal for readability on desktop.
-Single column on mobile	       To maintain readability and avoid clutter.
-SafeImage component	           Ensures layout doesn’t break when an image is missing.
-Redirect detail page	       Because NewsData API does not provide the full article text, only the link.
+Hero Section	--               Highlights one main top story with a large image (common in major news websites).
+
+3-column grid	       --        News sites typically use 2–4 columns; 3 is optimal for readability on desktop.
+
+Single column on mobile	  --     To maintain readability and avoid clutter.
+
+SafeImage component	       --    Ensures layout doesn’t break when an image is missing.
+
+Redirect detail page	   --    Because NewsData API does not provide the full article text, only the link.
 
 
 ## Data-Fetching Strategy
