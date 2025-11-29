@@ -181,3 +181,62 @@ Skeleton Loading	        --            Better loading experience.
 Better Category System	   --             More tabs: business, tech, entertainment, etc.
 
 Save-for-Later / Bookmark Feature	--    User experience improvement.
+
+
+
+## AI Use & Reflection
+
+#### Parts of the Assignment Completed Using AI
+
+AI was used as a support tool to speed up development and to get reference code examples. Specifically, AI helped with:
+
+1. Generating initial component templates such as Hero, NewsCard, and NewsGrid.
+
+2. Providing Tailwind CSS styling ideas for layout, spacing, and responsive design.
+
+3. Helping design the SafeImage component, which replaces broken images.
+
+4. Drafting fetch logic for retrieving news from the NewsData API.
+
+5. Suggesting the SSR (server-side rendering) approach to keep news fresh.
+
+6. Explaining how dynamic routes work in the Next.js App Router.
+
+#### AI Suggestions That Were Wrong or Suboptimal
+
+##### Wrong Data Fields:
+AI sometimes assumed fields like url instead of the actual API field link, leading to undefined errors.
+
+##### Image Handling Issues:
+Early AI code did not correctly handle broken image URLs, which resulted in missing or broken images on the UI.
+
+##### Static Generation Suggestion:
+AI suggested using static generation (SSG), which is not suitable for continuously updating news content.
+
+#### How I Verified and Corrected AI-Generated Code
+
+To ensure the final code was correct:
+
+1) I cross-checked AI suggestions with the actual NewsData API documentation.
+
+2) I used console logs to inspect dynamic route values, article links, API responses, and errors.
+
+3) I manually tested routing to confirm each article opened the correct external link.
+
+4) I removed the problematic Base64 approach and replaced it with a clean URL-based routing system.
+
+5) I restructured components (especially Hero and NewsCard) to ensure they followed the correct logic.
+
+#### Custom Modifications Beyond What AI Provided
+
+1. Created a clean redirect system that sends the user directly to the original news website, since the API does not return full article content.
+
+2. Built fallback handling for missing images, broken API data, and empty results.
+
+3. Designed the final UI layout to look similar to a real news portal, including Hero + Grid structure.
+
+4. Implemented category filtering logic for /category/[type].
+
+5. Ensured SSR so news is always fresh and not cached.
+
+6. Refined card design, spacing, and responsiveness for a clean interface.
