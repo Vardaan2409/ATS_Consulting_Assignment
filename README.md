@@ -111,8 +111,6 @@ A "No News Available" message when the API returns an empty list
 
 Placeholder images when image_url is missing
 
-Optional chaining and safe rendering for missing text fields
-
 
 ## AI Assistance
 
