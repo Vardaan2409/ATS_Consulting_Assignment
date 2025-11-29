@@ -97,12 +97,19 @@ Prevent stale data	  --  News must always be current; no caching is desirable.
 ### Article Type:
 
 export type Article = {
+
   title: string;
+  
   description?: string;
-  link: string;          // URL to full article
+  
+  link: string;      
+  
   image_url?: string;
+  
   pubDate?: string;
+  
   source_id?: string;
+  
 };
 
 
