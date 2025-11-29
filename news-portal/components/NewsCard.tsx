@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import SafeImage from "./SafeImage";
+import type { Article } from "@/utils/fetchNews";
 
-export default function NewsCard({ article }: any) {
+export default function NewsCard({ article }: { article: Article }) {
     return (
         <div className="bg-white rounded shadow overflow-hidden">
             <Link href={`/news/${encodeURIComponent(article.link)}`}>
@@ -18,11 +19,8 @@ export default function NewsCard({ article }: any) {
 
                 <div className="p-4">
                     <h3 className="font-semibold line-clamp-2">{article.title}</h3>
-                    <p className="text-sm text-gray-600 line-clamp-3">{article.description}</p>
-                    <p className="text-xs text-gray-500 mt-3">
-                        {article.pubDate
-                            ? new Date(article.pubDate).toLocaleDateString()
-                            : ""}
+                    <p className="text-sm text-gray-600 line-clamp-3">
+                        {article.description}
                     </p>
                 </div>
             </Link>

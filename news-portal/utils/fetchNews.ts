@@ -10,7 +10,7 @@ export type Article = {
 const BASE_URL = "https://newsdata.io/api/1/news";
 
 export default async function fetchNews(query: string = ""): Promise<Article[]> {
-    const key = process.env.NEWS_API_KEY; 
+    const key = process.env.NEWS_API_KEY;
 
     if (!key) {
         console.warn("NEWS_API_KEY missing in .env.local");
@@ -29,4 +29,3 @@ export default async function fetchNews(query: string = ""): Promise<Article[]> 
         return [];
     }
 }
-

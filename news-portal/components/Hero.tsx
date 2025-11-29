@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import SafeImage from "./SafeImage";
+import type { Article } from "@/utils/fetchNews";
 
-export default function Hero({ article }: any) {
+export default function Hero({ article }: { article: Article }) {
     return (
         <section className="bg-white rounded shadow overflow-hidden">
             <Link href={`/news/${encodeURIComponent(article.link)}`}>
