@@ -186,7 +186,7 @@ Save-for-Later / Bookmark Feature	--    User experience improvement.
 
 ## AI Use & Reflection
 
-#### Parts of the Assignment Completed Using AI
+### Parts of the Assignment Completed Using AI
 
 AI was used as a support tool to speed up development and to get reference code examples. Specifically, AI helped with:
 
@@ -202,7 +202,7 @@ AI was used as a support tool to speed up development and to get reference code 
 
 6. Explaining how dynamic routes work in the Next.js App Router.
 
-#### AI Suggestions That Were Wrong or Suboptimal
+### AI Suggestions That Were Wrong or Suboptimal
 
 ##### Wrong Data Fields:
 AI sometimes assumed fields like url instead of the actual API field link, leading to undefined errors.
@@ -213,7 +213,7 @@ Early AI code did not correctly handle broken image URLs, which resulted in miss
 ##### Static Generation Suggestion:
 AI suggested using static generation (SSG), which is not suitable for continuously updating news content.
 
-#### How I Verified and Corrected AI-Generated Code
+### How I Verified and Corrected AI-Generated Code
 
 To ensure the final code was correct:
 
@@ -227,7 +227,7 @@ To ensure the final code was correct:
 
 5) I restructured components (especially Hero and NewsCard) to ensure they followed the correct logic.
 
-#### Custom Modifications Beyond What AI Provided
+### Custom Modifications Beyond What AI Provided
 
 1. Created a clean redirect system that sends the user directly to the original news website, since the API does not return full article content.
 
