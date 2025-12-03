@@ -8,9 +8,10 @@ export default function Navbar() {
 
                 <div className="hidden md:flex gap-6 text-lg">
                     <Link href="/">Home</Link>
-                    <Link href="/category/india">India</Link>
+                    <Link href="/category/in">India</Link>
                     <Link href="/category/world">World</Link>
                     <Link href="/category/sports">Sports</Link>
+
                 </div>
             </div>
         </nav>

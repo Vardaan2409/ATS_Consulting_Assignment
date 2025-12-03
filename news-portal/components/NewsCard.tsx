@@ -4,10 +4,18 @@ import Link from "next/link";
 import SafeImage from "./SafeImage";
 import type { Article } from "@/utils/fetchNews";
 
-export default function NewsCard({ article }: { article: Article }) {
+export default function NewsCard({
+    article,
+    category,
+}: {
+    article: Article;
+    category: string;
+}) {
+    const encoded = encodeURIComponent(article.link);
+
     return (
         <div className="bg-white rounded shadow overflow-hidden">
-            <Link href={`/news/${encodeURIComponent(article.link)}`}>
+            <Link href={`/category/${category}/${encoded}`}>
                 <div className="relative w-full h-48">
                     <SafeImage
                         src={article.image_url}

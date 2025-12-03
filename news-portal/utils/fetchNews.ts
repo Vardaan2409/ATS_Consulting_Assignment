@@ -23,9 +23,34 @@ export default async function fetchNews(query: string = ""): Promise<Article[]> 
         const res = await fetch(url, { cache: "no-store" });
         const data = await res.json();
 
-        return Array.isArray(data.results) ? data.results : [];
+        let results: Article[] = Array.isArray(data.results) ? data.results : [];
+
+        // ❌ Remove invalid or empty articles
+        results = results.filter(
+            item =>
+                item.link &&
+                item.title &&
+                item.description &&
+                typeof item.link === "string"
+        );
+
+        // ❗ Remove duplicates using link
+        const uniqueResults = Array.from(
+            new Map(results.map(item => [item.link, item])).values()
+        );
+
+        // ⏳ Sort by latest first (based on pubDate)
+        uniqueResults.sort((a, b) => {
+            const dateA = new Date(a.pubDate ?? "").getTime();
+            const dateB = new Date(b.pubDate ?? "").getTime();
+            return dateB - dateA;
+        });
+
+        return uniqueResults;
+
     } catch (error) {
         console.error("Fetch error:", error);
         return [];
     }
 }
+
